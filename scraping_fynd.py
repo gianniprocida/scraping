@@ -30,7 +30,7 @@ class website():
 
     def get_address(self):
         if self.webpage.find('span'):
-           address = [address.get_text() for address in self.webpage.find_all('span', class_=" hp_address_subtitle js-hp_address_subtitle jq_tooltip ")]
+           address = [address.get_text() for address in self.webpage.find_all('span', class_="hp_address_subtitle js-hp_address_subtitle jq_tooltip")]
            address = [item.strip() for item in address]
            return address
 
@@ -68,17 +68,18 @@ class website():
            return room_details
 
 
-booking = website(url)
 
-d={'Name':booking.get_hotelname(),'Stars':booking.get_stars(),'Address':booking.get_address(),\
+if __name__=='__main__':
+      booking = website(url)
+      d={'Name':booking.get_hotelname(),'Stars':booking.get_stars(),'Address':booking.get_address(),\
     'Score&Reviews':booking.get_score_reviews(),'Description':booking.get_description(),\
    'Room type':booking.get_rooms(),'Det':booking.get_room_details()}
 
-def save_data(title,data):
-    with open(title, 'w', encoding='utf-8') as f:
-      json.dump(data, f, ensure_ascii=False, indent=2)
+      def save_data(title,data):
+        with open(title, 'w', encoding='utf-8') as f:
+         json.dump(data, f, ensure_ascii=False, indent=2)
 
-save_data('hotel_briston.json', d)
+      save_data('hotel_briston.json', d)
 
 
 
