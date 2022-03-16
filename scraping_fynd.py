@@ -1,6 +1,7 @@
 import requests
 from bs4 import  BeautifulSoup
 import json
+import re
 
 """Scraping data from the URL below"""
 """Just run the script in interactive window or python terminal"""
@@ -16,7 +17,7 @@ class website():
 
     def get_hotelname(self):
         if self.webpage.find('h2'):
-           headers = [name.get_text() for name in self.webpage.find_all('h2', id='hp_hotel_name')]
+           headers = [name.get_text() for name in self.webpage.find_all('h2', id=re.compile('^hp_hotel'))]
            hotel_name = [headers[0].splitlines()[2]]
            return hotel_name
 
@@ -30,7 +31,7 @@ class website():
 
     def get_address(self):
         if self.webpage.find('span'):
-           address = [address.get_text() for address in self.webpage.find_all('span', class_="hp_address_subtitle js-hp_address_subtitle jq_tooltip")]
+           address = [address.get_text() for address in self.webpage.find_all('span', class_=re.compile("^hp_address"))]
            address = [item.strip() for item in address]
            return address
 
