@@ -23,30 +23,66 @@ wd.get(url)
 
 search_bar=wd.find_element_by_id('ss')
 time.sleep(4)
-city=input("Insert the city")
-search_bar.send_keys(city)
+#city=input("Insert the city")
+search_bar.send_keys('Berlin')
 
 search_bar.send_keys(Keys.ENTER)
 
 try:
-    div = WebDriverWait(wd, 4).until(
+    div = WebDriverWait(wd, 20).until(
         EC.presence_of_element_located(
             (By.ID, "ajaxsrwrap"))
     )
+    window_before = wd.window_handles[0]
 
-    elems = div.find_elements_by_xpath("//a[@href]")
-    links_berlin,elements_berlin =[],[]
-    for elem in elems:
-        if elem.get_property('target')=='_blank' and 'hotel' in elem.get_attribute('href'):
-           links_berlin.append(elem.get_attribute('href'))
-           elements_berlin.append(elem)
-    elements_berlin[1].click()
+    #XPath query elements with multiple attributes : xpath("//a[@class='fb01724e5b][@href]") or xpath("//a[@class='fb01724e5b' and @href])
+    try:
+        link=WebDriverWait(wd, 950).until(
+        EC.element_to_be_clickable(
+            (By.XPATH, "//a[@class='fb01724e5b' and @href]"))
+        )
+        time.sleep(50)
+        link.click()
 
-    #element = WebDriverWait(wd, 10).until(
-    #       EC.visibility_of_element_located(
-    #            (By.CLASS_NAME, "bodyconstraint"))
-    # )
+       # window_after = wd.window_handles[1]
+    #    wd.switch_to.window(window_after)
+    #    aa=wd.title
+    except TimeoutError as e:
+      print(a)
 
+   # wd.switch_to.window(window_after)
+   # a=wd.title
+
+   # first_hotel=links[0]
+   # first_hotel.click()
+   # aa = [l.get_attribute('href') for l in div.find_elements_by_xpath("//a[@class='fb01724e5b' and @href]")]
+
+   # first_hotel=div.find_elements_by_xpath("//a[@class='fb01724e5b' and @href]")[0].click()
+
+    # links_berlin,elements_berlin =[],[]
+    # for elem in elems:
+    #     if elem.get_property('target')=='_blank' and 'hotel' in elem.get_attribute('href'):
+    #        links_berlin.append(elem.get_attribute('href'))
+    #        elements_berlin.append(elem)
+    # first_hotel=elements_berlin[1]
+    #Store the window handle
+
+    #time.sleep(10)
+    # elems = WebDriverWait(wd, 4).until(
+    #      EC.presence_of_element_located(
+    #          (By.XPATH,"//a[@href and @class=fb01724e5b]"))
+    #  )
+  #  first_hotel.click()
+    # Store the window handle of the newly opened window
+    # time.sleep(10)
+    # window_after = wd.window_handles[1]
+    #
+    #
+
+    # element = WebDriverWait(wd, 10).until(
+    #              EC.visibility_of_element_located(
+    #                  (By.ID, "hp_hotel_name"))
+    #          )
 
 except TimeoutError as e:
     print(e)
