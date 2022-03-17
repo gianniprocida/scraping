@@ -52,7 +52,7 @@ def plot_mean(data):
         print(data[i][str(index)]['period'])
         ax.scatter(data[i][str(index)]['period'],data[i][str(index)]['mean'],color='black', alpha=.6, label='mean')
         fig.autofmt_xdate()
-        plt.title('Articles about Justin Trudeau have been posted ')
+        plt.title('Articles about Justin Trudeau posted ')
     hand, labl = ax.get_legend_handles_labels()
     plt.legend(np.unique(labl))
 
