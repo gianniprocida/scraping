@@ -56,7 +56,7 @@ https://www.theguardian.com/us-news/donaldtrump.
 Example:
 </p>
 <figure>
-  <img src="Figure_1.png" width="350"
+  <img src="Figur_1.png" width="350"
  alt="output">
 
 </figure>
