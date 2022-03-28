@@ -54,7 +54,8 @@ scraping_usnews.py,
 
 <p align="left">
 Plot the number of articles per day about Trump from:
-https://www.theguardian.com/us-news/donaldtrump. Example:
+https://www.theguardian.com/us-news/donaldtrump. 
+Example:
 </p>
 <figure>
   <img src="Figure_1.png" width="350"
