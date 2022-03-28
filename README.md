@@ -1,5 +1,7 @@
-# scraping_fynd.py
-Web scraping from booking.com
+scripts:
+
+scraping_fynd.py:
+       Web scraping from booking.com
 
 { "Name": [
     "Hotel Bristol Berlin"
@@ -45,7 +47,26 @@ Web scraping from booking.com
 }
 
 
-# scraping_Trudeau.py
- Find the number of articles about Justin Trudeau from
-https://www.theguardian.com/world/justin-trudeau
- ![](Figure_1.png)
+scraping_usnews.py:
+
+
+<p align="left">
+Plot the number of articles per day about Trump from:
+https://www.theguardian.com/us-news/donaldtrump. 
+Example:
+</p>
+<figure>
+  <img src="Figure_1.png" width="350"
+ alt="output">
+
+</figure>
+
+
+
+<p align="left">
+Dataframe containing number of articles per day about Trump 
+</p>
+<figure>
+  <img src="Figure_2.png" width="350"
+ alt="output">
+</figure>
