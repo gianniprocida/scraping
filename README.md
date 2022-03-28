@@ -47,9 +47,7 @@ scraping_fynd.py:
 }
 
 
-scraping_usnews.py, 
-
-
+scraping_usnews.py:
 
 
 <p align="left">
