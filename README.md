@@ -1,5 +1,9 @@
 scripts:
 
+appl.py: 
+Small flask application that scrapes data from booking.com and displays them as a webpage
+
+
 scraping_fynd.py:
        Web scraping from booking.com
 
@@ -56,7 +60,7 @@ https://www.theguardian.com/us-news/donaldtrump.
 Example:
 </p>
 <figure>
-  <img src="Figur_1.png" width="350"
+  <img src="Figure_1.png" width="350"
  alt="output">
 
 </figure>
