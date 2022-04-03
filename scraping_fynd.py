@@ -22,12 +22,7 @@ class website():
            return hotel_name
 
     def get_stars(self):
-        if self.webpage.find('span'):
-          stars = 0
-          for span in self.webpage.find_all('span',class_="_3ae5d40db _617879812 _6ab38b430"):
-             if span.find('svg'):
-               stars +=1
-          return str(stars)
+        return str(len(self.webpage.find_all('span', {'class' : 'b6dc9a9e69 adc357e4f1 fe621d6382'})))
 
     def get_address(self):
         if self.webpage.find('span'):
