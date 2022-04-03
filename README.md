@@ -51,11 +51,11 @@ scraping_fynd.py:
 }
 
 
-scraping_usnews.py:
+scraping_uspoliticians.py:
 
 
 <p align="left">
-Plot the number of articles per day about Trump from:
+Plot the number of articles per day about Trump and Biden from:
 https://www.theguardian.com/us-news/donaldtrump. 
 Example:
 </p>
