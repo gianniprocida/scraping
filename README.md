@@ -5,6 +5,7 @@ Flask application
 
 
 
+
 scraping_base.py:
        Web scraping from hotel bristol berlin
 
