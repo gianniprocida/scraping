@@ -1,12 +1,21 @@
 <!doctype html>
-<html>
 	<head>
-<title> Hotel data</title>
+      <meta charset="UTF-8">
+      <meta name="description" content="Small flask app">
+      <title> Hotel data</title>
 	</head>
 <body>
-<h1> Bristol hotel </h1>
-{% for key,value in content.items() %}
-  <p> {{key,value}}</p>
-{% endfor %}
-</body>
+   <h2> Hotels</h2>
+   {% for i,j in content1.items() %}
+   <p>{{i,j}} </p>
+   {% endfor %}
+   <hr/> <hr/>
+   {% for i,j in content2.items() %}
+   <p>{{i,j}} </p>
+   {% endfor %}
+   <hr/> <hr/>
+   {% for i,j in content3.items() %}
+   <p>{{i,j}}</p>
+   {% endfor %}
+ </body>
 </html>
