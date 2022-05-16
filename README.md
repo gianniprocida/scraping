@@ -1,6 +1,6 @@
 scripts:
 
-appl.py, views.py, scraping, templates: 
+appl.py, views.py, bot.py, scraping.py , templates: 
 Flask application 
 
 
