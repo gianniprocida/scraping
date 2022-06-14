@@ -2,20 +2,14 @@
 	<head>
       <meta charset="UTF-8">
       <meta name="description" content="Small flask app">
-      <title> Hotel data</title>
+      <title> HomePage</title>
 	</head>
 <body>
-   <h2> Hotels</h2>
-   {% for i,j in content1.items() %}
-   <p>{{i,j}} </p>
-   {% endfor %}
-   <hr/> <hr/>
-   {% for i,j in content2.items() %}
-   <p>{{i,j}} </p>
-   {% endfor %}
-   <hr/> <hr/>
-   {% for i,j in content3.items() %}
-   <p>{{i,j}}</p>
-   {% endfor %}
+  <form>
+      <label for="username"> Usernane: </label><br>
+      <input type="text" id="username" name="username"><br>
+      <label for="pwd"> Password: </label><br>
+      <input type="password" id="pwd" name="pwd">
+  </form>
  </body>
 </html>
