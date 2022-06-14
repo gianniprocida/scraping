@@ -112,30 +112,3 @@ if __name__=='__main__':
    createTable(listHotelReview.pop(), strippedName.pop())
    while len(listHotelReview)>0:
          AppendData(listHotelReview.pop(), strippedName.pop())
-
-
-
-
-
-
-# listReview[0].columns = listReview[1].columns.str.replace(' ', '')
-# listReview[0].rename(columns={listReview[0].columns[4]:"ValueForMoney"},inplace=True)
-# listReview[0].rename(columns={listReview[0].columns[5]: "Location"},inplace=True)
-# listReview[0].rename(columns={listReview[0].columns[6]: "FreeWifi"},inplace=True)
-# listReview[0].insert(0,'HotelName',listName[0])
-# listReview[0].to_sql('Reviews',db, if_exists="replace",index=False)
-#
-#
-# listReview[1].columns = listReview[1].columns.str.replace(' ', '')
-# listReview[1].rename(columns={listReview[1].columns[4]:"ValueForMoney"},inplace=True)
-# listReview[1].rename(columns={listReview[1].columns[5]: "Location"},inplace=True)
-# listReview[1].rename(columns={listReview[1].columns[6]: "FreeWifi"},inplace=True)
-# listReview[1].insert(0,'HotelName',listName[1])
-# listReview[1].to_sql('Reviews',db, if_exists="append",index=False)
-#
-# listReview[2].columns = listReview[2].columns.str.replace(' ', '')
-# listReview[2].rename(columns={listReview[2].columns[4]:"ValueForMoney"},inplace=True)
-# listReview[2].rename(columns={listReview[2].columns[5]: "Location"},inplace=True)
-# listReview[2].rename(columns={listReview[2].columns[6]: "FreeWifi"},inplace=True)
-# listReview[2].insert(0,'HotelName',listName[2])
-# listReview[2].to_sql('Reviews',db, if_exists="append",index=False)
