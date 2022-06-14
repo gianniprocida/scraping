@@ -8,23 +8,18 @@ import sys
 from collections import deque
 import itertools
 
-
-# 
-
-# TO DO : bot for scraping the page of the first hotel popping up in the research 
+"""Scraping the first ten links from booking.com """
 def grab_links():
     wd=webdriver.Chrome('/usr/bin/chromedriver')
 
     url="https://www.booking.com/index.html?aid=376363;label=booking-name-L*Xf2U1sq4*GEkIwcLOALQS267777916054:pl:ta:p1:p22,563,000:ac:ap:neg:fi:tiaud-1183547561427:kwd-65526620:lp9043675:li:dec:dm:ppccp=UmFuZG9tSVYkc2RlIyh9YfqnDqqG8nt1XFzPnqOODws;ws=&gclid=Cj0KCQjwz7uRBhDRARIsAFqjulkeeGiMTlJ3WPwKB6U6QJxBtBYefQPt9AaQakNLY8PeTGRCAa1sIbQaAiF0EALw_wcB"
 
-
-    # Loading the page
     wd.get(url)
 
-
     search_bar=wd.find_element_by_id('ss')
+
     time.sleep(4)
-   #city=input("Insert the city")
+
     search_bar.send_keys('Berlin')
 
     search_bar.send_keys(Keys.ENTER)
@@ -39,7 +34,7 @@ def grab_links():
         q = deque()
         links = [ i.get_property('href') for i in hrefs]
 
-        for i in links[0:3]:
+        for i in links[0:10]:
             q.append(i)
 
     except TimeoutError as e:

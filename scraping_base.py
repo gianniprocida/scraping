@@ -4,16 +4,15 @@ import json
 import re
 import pandas as pd
 from textblob import TextBlob
-from collections import deque
+from collections import deque, defaultdict
 
 
 """Scraping data from the URL below"""
-""" TO DO : testing"""
-""" Not scraping expected results for other hotel websites on booking.com"""
+# It works fine only for the URL below ( data are missing when the methods
+# called upon other hotewebsites objects)
 
 headers = {"User-agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0"}
 url = "https://www.booking.com/hotel/de/kempinskibristolberlin.en-gb.html?aid=1649686;label=kempinskibristolberlin-BxmtH89CeFt5COrk%2AP71ywS323958243077%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-617622003811%3Akwd-395949224771%3Alp9043675%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YdwTcLIbWZlfefYGj3m2lIc;sid=716df04b0ec19f628bf5155e8ffa1fa5;all_sr_blocks=6066428_340785799_2_2_0;checkin=2022-02-10;checkout=2022-02-11;dest_id=-1746443;dest_type=city;dist=0;group_adults=2;group_children=0;hapos=1;highlighted_blocks=6066428_340785799_2_2_0;hpos=1;matching_block_id=6066428_340785799_2_2_0;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;sr_pri_blocks=6066428_340785799_2_2_0__13356;srepoch=1643632855;srpvid=b32a592a2c420297;type=total;ucfs=1&#tab-main"
-
 class hotelWebsite():
     def __init__(self,URL):
         self.URL = URL
@@ -22,11 +21,11 @@ class hotelWebsite():
 
     def get_hotelname(self):
         if self.webpage.find('h2'):
-           q=deque([hotel_bristolberlin.webpage.find_all('h2',id='hp_hotel_name')[0].get_text().splitlines()[2]])
+           q=deque([self.webpage.find_all('h2',id='hp_hotel_name')[0].get_text().splitlines()[2]])
            return q.pop()
 
     def get_stars(self):
-        return str(len(self.webpage.find_all('span', {'class' : 'b6dc9a9e69 adc357e4f1 fe621d6382'})))
+        return len(self.webpage.find_all('span', {'class' : 'b6dc9a9e69 adc357e4f1 fe621d6382'}))
 
     def get_address(self):
         if self.webpage.find('span'):
@@ -43,9 +42,16 @@ class hotelWebsite():
         scores = [float(i) for i in scores]
         categories = [ j.get_text().replace("\xa0"," ") for j in self.webpage.find_all('span',class_='c-score-bar__title')]
         reviews = dict(zip(categories,scores))
-        return reviews
+        k = list(reviews.keys())
+        v = list(reviews.values())
+        tup = list(zip(k, v))
+        reviews = defaultdict(list)
+        for key, val in tup:
+            reviews[key].append(val)
+        df = pd.DataFrame.from_dict(reviews)
+        return df
 
-    def get_table(self):
+    def get_roomsTable(self):
         if self.webpage.find('table'):
             table = self.webpage.find('table')
             span_with_kids = table.find_all('span',class_="with_kids")
@@ -60,7 +66,7 @@ class hotelWebsite():
 
             return df
 
-    def get_what_they_loved(self):
+    def get_whattheylovedTable(self):
         polarity = [TextBlob(i.get_text().replace("\n"," ")).sentiment.polarity\
                              for i in self.webpage.find_all('span',class_='c-review__body')]
 
@@ -81,7 +87,7 @@ class hotelWebsite():
 
         return df
 
-    def get_hotelsurroundings(self):
+    def get_hotelsurroundingsTable(self):
         i=0
 
         # Grab the locations
@@ -113,13 +119,12 @@ class hotelWebsite():
 
 
 if __name__=='__main__':
-    url = "https://www.booking.com/hotel/de/kempinskibristolberlin.en-gb.html?aid=1649686;label=kempinskibristolberlin-BxmtH89CeFt5COrk%2AP71ywS323958243077%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-617622003811%3Akwd-395949224771%3Alp9043675%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YdwTcLIbWZlfefYGj3m2lIc;sid=716df04b0ec19f628bf5155e8ffa1fa5;all_sr_blocks=6066428_340785799_2_2_0;checkin=2022-02-10;checkout=2022-02-11;dest_id=-1746443;dest_type=city;dist=0;group_adults=2;group_children=0;hapos=1;highlighted_blocks=6066428_340785799_2_2_0;hpos=1;matching_block_id=6066428_340785799_2_2_0;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;sr_pri_blocks=6066428_340785799_2_2_0__13356;srepoch=1643632855;srpvid=b32a592a2c420297;type=total;ucfs=1&#tab-main"
     hotel_bristolberlin = hotelWebsite(url)
     d={'Name':hotel_bristolberlin.get_hotelname(),'Address':hotel_bristolberlin.get_address(),
-       'Stars':hotel_bristolberlin.get_stars(),
-       'Surroundings':hotel_bristolberlin.get_hotelsurroundings(),
-               'Stars':hotel_bristolberlin.get_stars(),'Address':hotel_bristolberlin.get_address(),\
-            'Description':hotel_bristolberlin.get_description(),\
-          'Det':hotel_bristolberlin.get_table(),
-         'Reviews':hotel_bristolberlin.get_reviews(), 'WhatTheyLoved':hotel_bristolberlin.get_what_they_loved()}
+        'Stars':hotel_bristolberlin.get_stars(),
+        'Surroundings':hotel_bristolberlin.get_hotelsurroundingsTable(),
+                'Stars':hotel_bristolberlin.get_stars(),'Address':hotel_bristolberlin.get_address(),
+             'Description':hotel_bristolberlin.get_description(),
+           'Det':hotel_bristolberlin.get_roomsTable(),
+          'Reviews':hotel_bristolberlin.get_reviews(), 'WhatTheyLoved':hotel_bristolberlin.get_whattheylovedTable()}
 
