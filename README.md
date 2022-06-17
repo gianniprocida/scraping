@@ -2,15 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> FlaskApp</title>
-    <style>
-        nav a {
-            color: black;
-            font-size: 3em;
-            margin-left: 50px;
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
     <h1> Flask App</h1>
