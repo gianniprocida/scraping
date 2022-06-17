@@ -41,7 +41,7 @@
             in scraping.py and bot.py, creates the database and loads the data. Data were extracted
             from booking.com </li>
         <li> Web Scraping limitation: the structure of website change frequently thus the files bot.py,
-        scraping.py and pipeline.py will be modified accordingly. As of now, scraping.py doesn't return the
+        scraping.py and pipeline.py will be modified accordingly. As of now, scraping.py no longer returns the
         expected outcome </li>
     </ul>
   <h1> Data collector </h1>
