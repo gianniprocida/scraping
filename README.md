@@ -30,7 +30,6 @@
      <li> HotelData.db</li>
     </ul>
      <h3>Description</h3>
-    <hr>
     <p> Two routes were implemented so far : </p>
     <ul>
         <li> @app.route('/add/') : add new records into the database</li>
