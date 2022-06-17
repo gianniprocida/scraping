@@ -15,7 +15,7 @@
 <body>
     <nav>
         <a >FlaskApp</a>
-
+         <a > Documentation </a>
     </nav>
     <hr>
     <p> Flask application displaying hotel data from SQLite database previously created. Data were extracted
@@ -58,23 +58,23 @@
         <li> Web Scraping limitation: the structure of website change frequently thus the files bot.py,
         scraping.py and pipeline.py will be modified accordingly. As of now, scraping.py doesn't return the
         expected outcome </li>
-
     </ul>
  <nav>
-        <a > Data collection </a>
-
+        <a >Data collectiom</a>
+         <a > Documentation </a>
     </nav>
     <hr>
     <p> Data extraction from https://www.theguardian.com and loading into a database . </p>
+  
  <h2> Python Files </h2>
   <ul>
       <li>scraping_news.py</li>
+  </ul>
       <figure>
   <img src="Figure_1.png" alt="counts" style="width:80%">
   <figcaption>Fig.1 - Plot the number of articles per day about Trump and Biden.</figcaption>
      </figure>
 
-  </ul>
 </body>
 
 
