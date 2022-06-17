@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 id = "myheader" style="background:darkcyan; color:black; padding:10px 20px;">
+        {% block title %} List Hotel in Berlin  {% endblock %}</h1>
+    {% for r in listhotelNames %}
+     <div class="hotels">
+         <h2> {{r['HotelName']}}</h2>
+         <p>  Staff: {{r['Staff']}}</p>
+         <p>  Facilities: {{r['Facilities']}}</p>
+         <p>  Cleanliness:{{r['Cleanliness']}}</p>
+         <p>  Comfort: {{r['Comfort']}}</p>
+         <p>  ValueForMoney : {{r['ValueForMoney']}}</p>
+         <p>  Location : {{r['Location']}}</p>
+         <p>  FreeWifi : {{r['FreeWifi']}}</p>
+     </div>
+    {% endfor %}
+{% endblock %}
