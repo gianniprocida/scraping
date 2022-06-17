@@ -13,10 +13,7 @@
     </style>
 </head>
 <body>
-    <nav>
-        <a >FlaskApp</a>
-         <a > Documentation </a>
-    </nav>
+    <h1> Flask App</h1>
     <hr>
     <p> Flask application displaying hotel data from SQLite database previously created. Data were extracted
         from booking.com and simultaneously loaded to the database. </p>
@@ -59,10 +56,7 @@
         scraping.py and pipeline.py will be modified accordingly. As of now, scraping.py doesn't return the
         expected outcome </li>
     </ul>
- <nav>
-        <a >Data collectiom</a>
-         <a > Documentation </a>
-    </nav>
+  <h1> Data collector </h1>
     <hr>
     <p> Data extraction from https://www.theguardian.com and loading into a database . </p>
   
