@@ -6,7 +6,7 @@
 <body>
     <h1> Flask App</h1>
     <hr>
-    <p> Flask application displaying data from SQLite database. The database created using data extracted from booking.com </p>
+    <p> Flask application displaying data from SQLite database. The database was created using data extracted from booking.com </p>
     <h2> Python Files </h2>
   <ul>
       <li>app.py</li>
