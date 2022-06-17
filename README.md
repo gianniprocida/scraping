@@ -20,7 +20,7 @@
   </ul>
     <h2> HTML Files</h2>
     <ul>
-     <li> base.py</li>
+     <li> base.html</li>
       <li> add.html </li>
       <li> home.html</li>
     </ul>
@@ -29,9 +29,7 @@
     <ul>
      <li> HotelData.db</li>
     </ul>
-    <nav>
-        <h3>Description</h3>
-    </nav>
+     <h3>Description</h3>
     <hr>
     <p> Two routes were implemented so far : </p>
     <ul>
