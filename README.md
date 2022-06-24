@@ -54,7 +54,7 @@
   </ul>
       <h2> Database file</h2>
        <ul>
-        <li> HotelData.db</li>
+        <li> usnews.db</li>
        </ul>
       <figure>
   <img src="Figure_1.png" alt="counts" style="width:80%">
