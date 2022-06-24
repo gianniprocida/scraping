@@ -50,7 +50,12 @@
  <h2> Python Files </h2>
   <ul>
       <li>scraping_news.py</li>
+      <li> Scraping_new.py</li>
   </ul>
+      <h2> Database file</h2>
+       <ul>
+        <li> HotelData.db</li>
+       </ul>
       <figure>
   <img src="Figure_1.png" alt="counts" style="width:80%">
   <figcaption>Fig.1 - Plot the number of articles per day about Trump and Biden.</figcaption>

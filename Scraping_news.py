@@ -81,7 +81,7 @@ def generator_of_df(url,maxpage):
         df=pd.DataFrame(list(zip(dates,titles)),columns=['Date','Title'])
         yield df
 
-#
+
 def validateLink(s,link):
     name = s.split("-")[1]
     for _ in range(2):
