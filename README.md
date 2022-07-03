@@ -43,23 +43,7 @@
         scraping.py and pipeline.py will be modified accordingly. As of now, scraping.py no longer returns the
         expected outcome </li>
     </ul>
-  <h1> Data collector </h1>
-    <hr>
-    <p> Data extraction from https://www.theguardian.com and loading into a database . </p>
-  
- <h2> Python Files </h2>
-  <ul>
-      <li>scraping_news.py</li>
-      <li> Scraping_new.py</li>
-  </ul>
-      <h2> Database file</h2>
-       <ul>
-        <li> usnews.db</li>
-       </ul>
-      <figure>
-  <img src="Figure_1.png" alt="counts" style="width:80%">
-  <figcaption>Fig.1 - Plot the number of articles per day about Trump and Biden.</figcaption>
-     </figure>
+ 
 
 </body>
 
